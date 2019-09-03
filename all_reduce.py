@@ -1,5 +1,5 @@
 # This script demos the concept of sitributed training with pytorch using nccl as the backend.
-# Does a distributed all reduce across 2 nodes using all the GPUs in the node.
+# The given example config does a distributed all reduce across 2 nodes using all the GPUs in the node.
 # The output across all the tensors after all reduce operation must be equal to the number of GPUs across all the nodes.
 
 import torch
@@ -18,16 +18,6 @@ parser.add_argument('--dist-url', default='tcp://gpu002:9001', type=str,
                          'This is the url to the master node. This node co-ordinates the overall training process.')
 parser.add_argument('--dist-backend', default='nccl', type=str,
                     help='distributed backend')
-parser.add_argument('--seed', default=None, type=int,
-                    help='seed for initializing training. ')
-parser.add_argument('--gpu', default=None, type=int,
-                    help='GPU id to use.')
-parser.add_argument('--multiprocessing-distributed', action='store_true',
-                    help='Use multi-processing distributed training to launch '
-                         'N processes per node, which has N GPUs. This is the '
-                         'fastest way to use PyTorch for either single node or '
-                         'multi node data parallel training')
-
 
 def main():
     args = parser.parse_args()
