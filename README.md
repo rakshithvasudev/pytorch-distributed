@@ -6,13 +6,13 @@ Ensure that the correct IP address is given for the --dist-url argument inside t
 
 On Node 0 : 
 ```
-python all_reduce.py --rank 0 --world-size 2
+python all_reduce.py --rank 0 --world-size 2 --dist-url tcp://masternode-ip:freeport
 ```
 
 On Node 1:
 
 ```
-python all_reduce.py --rank 1 --world-size 2
+python all_reduce.py --rank 1 --world-size 2 --dist-url tcp://masternode-ip:freeport
 ```
 
 
